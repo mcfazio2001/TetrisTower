@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 
-#define DATA_PIN DATA_PIN
+#define DATA_PIN 9
 #define CLK_PIN 12
 #define CS_PIN 13 
 

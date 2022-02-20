@@ -1,4 +1,5 @@
 #include <Adafruit_NeoPixel.h>
+#include "imagedata.h"
 
 #define DATA_PIN 9
 #define CLK_PIN 12
@@ -12,23 +13,24 @@ void setup()
 {
   panel.begin();
   panel.setBrightness(64);
+  panel.setPixelColor(0, 255);
   panel.show();   
 
   digitalWrite(CS_PIN, HIGH);
   pinMode(DATA_PIN, OUTPUT);
-  pinMode(DATA_PIN, OUTPUT);
+  pinMode(CS_PIN, OUTPUT);
   pinMode(CLK_PIN, OUTPUT);
   
 }
 
 void loop()
 {
-  RenderFrame(ledarray);
+  RenderFrame(ledarray_01);
   delay(500);
 
 }
 
-void RenderFrame(const uint32_t *arr)
+void RenderFrame(unsigned int *arr)
 {
   for (uint16_t t = 0; t < NUM_PIXELS; t++)
   {
@@ -36,6 +38,3 @@ void RenderFrame(const uint32_t *arr)
   }
   panel.show();
 }
-
-
-
